@@ -30,4 +30,9 @@ public class TaskController {
     public Task getTask(@PathVariable int ID) {
         return store.getTask(ID);
     }
+
+    @PostMapping("/tasks/{ID}")
+    public Task taskDone(@PathVariable int ID) {
+        return store.markCompleted(ID);
+    }
 }

@@ -16,11 +16,8 @@ public class Task {
     public String getTitle() { return title; }
     public boolean isStatus() { return status; }
 
-    public String testGetInfo() {
-        return ("ID: " + id + "\n" +
-            "Title: " + title + "\n" +
-            "Status: " + status + "\n"
-        );        
+    public void markDone() {
+        status = true;
     }
 
     
