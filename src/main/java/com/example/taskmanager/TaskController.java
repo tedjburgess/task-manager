@@ -8,10 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public class TaskController {
-    @PostMapping("/tasks")
-    public String createTask(@RequestBody String title) {
-        Task task = new Task(title);
-        String taskInfo = task.testGetInfo();
-        return taskInfo;
+    private final TaskStore store;
+    
+    
+    public TaskController(TaskStore store) {
+        this.store = store;
     }
+
+    @PostMapping("/tasks")
+    public Task createTask(@RequestBody String title) {
+        return store.createTask(title);
+    }
+
+    // @GetMapping("/tasks")
+    // public String getTasks() {
+
+    // }
 }

@@ -12,12 +12,18 @@ public class Task {
         this.status = false;
     }
 
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public boolean isStatus() { return status; }
+
     public String testGetInfo() {
         return ("ID: " + id + "\n" +
             "Title: " + title + "\n" +
             "Status: " + status + "\n"
         );        
     }
+
+    
 
 
 
