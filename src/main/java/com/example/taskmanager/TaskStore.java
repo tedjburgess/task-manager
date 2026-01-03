@@ -33,4 +33,14 @@ public class TaskStore {
         return null;
     }
 
+    public Task markCompleted(int ID) {
+        for (Task task : taskList) {
+            if (task.getId() == ID) {
+                task.markDone();
+                return task;
+            }
+        }
+        return null;        
+    }
+
 }
