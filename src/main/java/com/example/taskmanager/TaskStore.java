@@ -21,18 +21,15 @@ public class TaskStore {
     }
 
     public List<Task> getTasks() {
-        return taskList;
-        
-        
-        // if (taskList.size() != 0) {
-        //     for (Task task: taskList) {
-        //         sb.append("ID: " + task.getId());
-        //         sb.append("Title: " + task.getTitle());
-        //         sb.append("Status: " + task.isStatus());
-        //     }
-        //     return sb;
-        // }
-        // sb.append("Empty");
-        // return sb;
+        return taskList;        
+    }
+
+    public Task getTask(int ID) {
+        for (Task task : taskList) {
+            if (task.getId() == ID) {
+                return task;
+            }
+        }
+        return null;
     }
 }

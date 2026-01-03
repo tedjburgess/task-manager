@@ -1,10 +1,8 @@
 package com.example.taskmanager;
 
 import java.util.List;
-
-import javax.swing.plaf.synth.SynthListUI;
-
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +24,10 @@ public class TaskController {
     @GetMapping("/tasks")
     public List<Task> getTasks() {
         return store.getTasks();
+    }
+
+    @GetMapping("/tasks/{ID}")
+    public Task getTask(@PathVariable int ID) {
+        return store.getTask(ID);
     }
 }
