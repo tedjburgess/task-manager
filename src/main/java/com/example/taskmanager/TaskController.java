@@ -1,5 +1,9 @@
 package com.example.taskmanager;
 
+import java.util.List;
+
+import javax.swing.plaf.synth.SynthListUI;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,8 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class TaskController {
     private final TaskStore store;
-    
-    
+
     public TaskController(TaskStore store) {
         this.store = store;
     }
@@ -20,8 +23,8 @@ public class TaskController {
         return store.createTask(title);
     }
 
-    // @GetMapping("/tasks")
-    // public String getTasks() {
-
-    // }
+    @GetMapping("/tasks")
+    public List<Task> getTasks() {
+        return store.getTasks();
+    }
 }
