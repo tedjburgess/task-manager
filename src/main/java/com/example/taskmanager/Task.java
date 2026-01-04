@@ -18,11 +18,5 @@ public class Task {
 
     public void markDone() {
         status = true;
-    }
-
-    
-
-
-
-    
+    } 
 }
