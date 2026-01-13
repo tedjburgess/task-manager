@@ -1,17 +1,13 @@
 package com.example.taskmanager;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 @Component
 public class TaskStore {
     fakeDatabase database;
-    List<Task> taskList;
 
     public TaskStore() {
-        this.taskList = new ArrayList<Task>();
         this.database = new fakeDatabase();
     }
 
@@ -22,7 +18,7 @@ public class TaskStore {
     }
 
     public List<Task> getTasks() {
-        return taskList;        
+        return database.retrieveAllTasks();        
     }
 
     public Task getTask(int ID) {
@@ -32,19 +28,19 @@ public class TaskStore {
 
     public Task markCompleted(int ID) {
         Task task = database.retrieveTask(ID);
-        if (task != null) {
-            task.markDone();
+        if (task == null) {
+             return null;
         }
+        task.markDone();
         return task;      
     }
 
     public List<Task> deleteTask(int ID) {
-        Task task = database.retrieveTask(ID);
-        if (task == null) {
+        Task remove = database.removeTask(ID);
+        if (remove == null) {
             return null;
         }
-        taskList.remove(task);
-        return taskList;        
+        return database.retrieveAllTasks();        
     }
 
 }
