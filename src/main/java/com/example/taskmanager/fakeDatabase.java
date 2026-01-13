@@ -14,6 +14,10 @@ public class fakeDatabase {
         taskList.add(task);
     }
 
+    public List<Task> retrieveAllTasks() {
+        return taskList;
+    }
+
     public Task retrieveTask(int ID) {
         for (Task task : taskList) {
             if (task.getId() == ID) {
@@ -21,5 +25,13 @@ public class fakeDatabase {
             }
         }
         return null;
+    }
+
+    public Task removeTask(int ID) {
+        Task task = retrieveTask(ID);
+        if (task != null) {
+            taskList.remove(task);
+        }
+        return task;
     }
 }
