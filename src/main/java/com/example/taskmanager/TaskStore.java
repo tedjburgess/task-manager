@@ -25,17 +25,17 @@ public class TaskStore {
         return taskList;        
     }
 
-    public Task getTask(int ID) {
-        for (Task task : taskList) {
-            if (task.getId() == ID) {
-                return task;
-            }
-        }
-        return null;
-    }
+    // public Task getTask(int ID) {
+    //     for (Task task : taskList) {
+    //         if (task.getId() == ID) {
+    //             return task;
+    //         }
+    //     }
+    //     return null;
+    // }
 
     public Task markCompleted(int ID) {
-        Task task = getTask(ID);
+        Task task = database.getTask(ID);
         if (task != null) {
             task.markDone();
         }
@@ -43,7 +43,7 @@ public class TaskStore {
     }
 
     public List<Task> deleteTask(int ID) {
-        Task task = getTask(ID);
+        Task task = database.getTask(ID);
         if (task == null) {
             return null;
         }

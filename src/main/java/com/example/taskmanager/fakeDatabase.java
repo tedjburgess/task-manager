@@ -13,4 +13,13 @@ public class fakeDatabase {
     public void storeTask(Task task) {
         taskList.add(task);
     }
+
+    public Task getTask(int ID) {
+        for (Task task : taskList) {
+            if (task.getId() == ID) {
+                return task;
+            }
+        }
+        return null;
+    }
 }
