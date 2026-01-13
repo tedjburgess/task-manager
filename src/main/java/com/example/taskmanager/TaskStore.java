@@ -7,15 +7,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TaskStore {
+    fakeDatabase database;
     List<Task> taskList;
 
     public TaskStore() {
         this.taskList = new ArrayList<Task>();
+        this.database = new fakeDatabase();
     }
 
     public Task createTask(String title) {
         Task task = new Task(title);
-        taskList.add(task);
+        database.storeTask(task);
         return task;
     }
 

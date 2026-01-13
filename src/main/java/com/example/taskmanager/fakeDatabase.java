@@ -9,4 +9,8 @@ public class fakeDatabase {
     public fakeDatabase() {
         this.taskList = new ArrayList<Task>();
     }
+
+    public void storeTask(Task task) {
+        taskList.add(task);
+    }
 }
