@@ -34,13 +34,11 @@ public class TaskStore {
     }
 
     public Task markCompleted(int ID) {
-        for (Task task : taskList) {
-            if (task.getId() == ID) {
-                task.markDone();
-                return task;
-            }
+        Task task = getTask(ID);
+        if (task != null) {
+            task.markDone();
         }
-        return null;        
+        return task;      
     }
 
     public List<Task> deleteTask(int ID) {
