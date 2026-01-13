@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskStore {
     List<Task> taskList;
-    StringBuilder sb = new StringBuilder("List: \n");
 
     public TaskStore() {
         this.taskList = new ArrayList<Task>();
