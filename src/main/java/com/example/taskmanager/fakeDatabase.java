@@ -14,7 +14,7 @@ public class fakeDatabase {
         taskList.add(task);
     }
 
-    public Task getTask(int ID) {
+    public Task retrieveTask(int ID) {
         for (Task task : taskList) {
             if (task.getId() == ID) {
                 return task;
