@@ -44,13 +44,18 @@ public class TaskStore {
     }
 
     public List<Task> deleteTask(int ID) {
+        Task removeTask = null;
         for (Task task : taskList) {
             if (task.getId() == ID) {
-                taskList.remove(task);
-                return taskList;
+                removeTask = task;
+                break;
             }
         }
-        return null;        
+        if (removeTask == null) {
+            return null;
+        }
+        taskList.remove(removeTask);
+        return taskList;        
     }
 
 }
