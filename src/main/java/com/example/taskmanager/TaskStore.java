@@ -42,17 +42,11 @@ public class TaskStore {
     }
 
     public List<Task> deleteTask(int ID) {
-        Task removeTask = null;
-        for (Task task : taskList) {
-            if (task.getId() == ID) {
-                removeTask = task;
-                break;
-            }
-        }
-        if (removeTask == null) {
+        Task task = getTask(ID);
+        if (task == null) {
             return null;
         }
-        taskList.remove(removeTask);
+        taskList.remove(task);
         return taskList;        
     }
 
